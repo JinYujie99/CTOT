@@ -196,7 +196,7 @@ def main(args):
 
 
 if __name__ == "__main__":
-    print("Start Training...")
+    print("Start Pre-Training...")
 
     # Initialize the time
     timestr = time.strftime("%Y%m%d-%H%M%S")

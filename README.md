@@ -16,14 +16,14 @@ We have also provided our pre-trained models in the `models` folder.
 2.Gnenerate Trajectory Data using OT
 
 ```
-bash gen_tra_data.sh
+bash scripts/gen_tra_data.sh
 ```
 We have also provided our generated trajectory data in the `data` folder.
 
 3.Train the continuous-time model and make predictions for the target domain
 
 ```
-bash train.sh
+bash scripts/train.sh
 ```
 
 ## Requirements

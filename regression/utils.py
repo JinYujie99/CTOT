@@ -187,24 +187,14 @@ class FastDataLoader:
     def __len__(self):
         return self._length
 
-def cal_dist(x, y, use_euclidean=True):
-    # x: N x D
-    # y: M x D
-    n = x.size(0)
-    m = y.size(0)
+def cal_dist(x, y):
+    m = x.size(0)
     d = x.size(1)
-    assert d == y.size(1)
+    n = y.size(0)
 
-    x = x.unsqueeze(1).expand(n, m, d)
-    y = y.unsqueeze(0).expand(n, m, d)
-    return metric_dist(x, y, use_euclidean)
-
-def metric_dist(x, y, use_euclidean=True):
-    if use_euclidean:
-        return - torch.pow(x - y, 2).sum(2)  # [n, m]
-    else:
-        # dot product as -distance
-        return torch.sum(x * y, dim=-1)
+    x = x.unsqueeze(1).expand(m, n, d)
+    y = y.unsqueeze(0).expand(m, n, d)
+    return -torch.pow(x - y, 2).sum(2)
 
 
 class AverageMeter(object):

@@ -69,7 +69,7 @@ parser.add_argument("--mlp_dropout", default=0.0, type=float, help="dropout rate
 # Training args
 parser.add_argument("--batch_size", default=128, type=int)
 parser.add_argument("--lr", default=1e-3, type=float)
-parser.add_argument("--wd", default=5e-4, type=float, help="weight decay")  # 5e-4>>1e-4,0.0，调大之后再训练后期也比较稳定
+parser.add_argument("--wd", default=5e-4, type=float, help="weight decay")
 parser.add_argument("--epochs", default=300, type=int, help="total epochs")
 parser.add_argument("--clip", default=0.05, type=float, help="gradient clipping")
 parser.add_argument("--print_freq", default=10, type=int)
@@ -78,10 +78,10 @@ parser.add_argument('--gpu', default='0', type=str)
 parser.add_argument('--lr_gamma', default=0.1, type=float)
 
 # Latent Model args
-parser.add_argument("--latent_size", default=64, type=int, help="dimension of SDE latent state")
+parser.add_argument("--latent_size", default=64, type=int, help="dimension of latent state")
 parser.add_argument("--context_size", default=16, type=int, help="dimension of encoder context")
-parser.add_argument("--hidden_size", default=128, type=int, help="hidden dimension of gru and mlp in latentsde")
-parser.add_argument("--kl_weight", default=0.02, type=float, help="init kl weight")
+parser.add_argument("--hidden_size", default=128, type=int, help="hidden dimension of gru and mlp in latentmodel")
+parser.add_argument("--kl_weight", default=0.02, type=float, help="kl weight")
 parser.add_argument("--interp_weight", default=0.1, type=float)
 parser.add_argument("--gen_batch", default=1000, type=int)
 parser.add_argument("--interp_num", default=1, type=int)
@@ -242,7 +242,7 @@ def main(args):
     print("test_mae = {:3.6f}".format(mae))
 
 if __name__ == "__main__":
-    print("Start Training Latent SDE...")
+    print("Start Training...")
 
     # Initialize the time
     timestr = time.strftime("%Y%m%d-%H%M%S")
