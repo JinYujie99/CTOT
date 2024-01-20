@@ -33,6 +33,7 @@ Environments used in our experiments:
 * Numpy 1.24.3
 * torchvision 0.9.1
 * POT 0.9.1
+* torchdiffeq 0.2.3
 * torchsde 0.2.6
 
 
