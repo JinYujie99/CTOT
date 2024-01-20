@@ -13,7 +13,7 @@ bash scripts/pretrain.sh
 ```
 We have also provided our pre-trained models in the `models` folder.
 
-2.Gnenerate Trajectory Data using OT
+2.Generate trajectory data (Instance Evolving Trajectory Mining)
 
 ```
 bash scripts/gen_tra_data.sh
