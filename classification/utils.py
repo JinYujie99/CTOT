@@ -196,7 +196,6 @@ def cal_dist_matrix(x, y):
     y = y.unsqueeze(0).expand(m, n, d)
     return -torch.pow(x - y, 2).sum(2)
 
-
 class AverageMeter(object):
     """Computes and stores the average and current value"""
 
